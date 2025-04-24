@@ -1,0 +1,100 @@
+# pyproject.toml
+
+[build-system]
+requires = [
+    "setuptools>=65.0",
+    "wheel",
+    "Cython>=0.29.34", # Minimum Cython version
+    "numpy>=1.22.0"    # Minimum NumPy for build
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ridge-inference"
+version = "0.3.0" # <<< ENSURE THIS IS CORRECT & MATCHES setup.py/__init__.py
+authors = [
+  {name = "Seongyong Park", email = "seongyong.park@nih.gov"},
+]
+description = "High-performance ridge regression with significance testing for genomics and bioinformatics"
+readme = "README.md"
+license = "MIT" # Use SPDX identifier string
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Programming Language :: C",
+    "Programming Language :: Cython",
+    "Development Status :: 4 - Beta",
+]
+# Core runtime dependencies
+dependencies = [
+    "numpy>=1.21.0",
+    "scipy>=1.7.0",
+    "pandas>=1.3.0",
+    "psutil>=5.9.0",
+    "tqdm>=4.62.0",
+]
+
+[project.optional-dependencies]
+mkl = []
+gsl = []
+gpu = ["cupy>=12.0.0; platform_system!='Darwin' and platform_machine!='aarch64'"]
+numba = ["numba>=0.56.0"]
+io = ["pyarrow>=7.0.0", "anndata>=0.8.0", "zarr>=2.12.0"]
+viz = ["matplotlib>=3.5.0", "seaborn>=0.11.0"]
+cpu = ["ridge-inference[numba]"]
+standard = ["ridge-inference[numba,io]"]
+full = ["ridge-inference[numba,gpu,io,viz]"]
+all = ["ridge-inference[full]"]
+dev = [
+    "ridge-inference[all]",
+    "pytest>=7.0.0", "pytest-cov>=3.0.0", "flake8>=4.0.0",
+    "black>=23.0.0", "isort>=5.10.0", "mypy>=1.0.0",
+    "sphinx>=5.0.0", "sphinx-rtd-theme>=1.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/data2intelligence/ridge_significance_sparse"
+"Bug Tracker" = "https://github.com/data2intelligence/ridge_significance_sparse/issues"
+
+[project.scripts]
+ridge-inference-main = "ridge_inference.cli:run_main"
+ridge-inference-secact = "ridge_inference.cli:run_secact"
+
+# ====================== Tool Configurations ======================
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ridge_inference*"]
+exclude = ["datasets*", "ComparePy2R*", "docs*", "examples*", "scripts*", "tests*", "src*", "build*", "dist*", "*.egg-info*"]
+
+[tool.setuptools.package-data]
+ridge_inference = [
+    "*.so", "*.pyd", "*.dll", "*.dylib",
+    "*.pyx", "*.pxd", "*.h",
+    "py.typed",
+    "data/**/*",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"

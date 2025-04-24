@@ -1,0 +1,8 @@
+include LICENSE
+include README.md
+recursive-include data *
+recursive-include datasets *
+recursive-include examples *
+recursive-include tests *
+# Include C source if you want to distribute it (optional)
+# recursive-include src *
