@@ -42,13 +42,13 @@ make test_mkl MKLROOT=/path/to/mkl
 
 ### Installation
 
-After compilation, install the library where Python can find it:
+The Makefile builds the backend-specific executables (`main_gsl` and/or `main_mkl`). To integrate with Python, you'll need to implement a proper installation process that exposes the C functions to Python.
 
-```bash
-make install
-```
+If you're developing a Python extension that uses these C backends, you'll typically need to:
 
-This will copy the shared libraries (`RidgeInf.so` and backend-specific libraries) to the parent directory.
+1. Create appropriate Python C extension modules
+2. Use a setup.py file to compile these extensions 
+3. Make sure the compiled libraries are in Python's import path
 
 ## Prerequisites
 
