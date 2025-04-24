@@ -1,0 +1,14 @@
+﻿Conditions,Label
+NHBE_SARS-CoV-2@Series1,1
+COVID19Lung@Series15,1
+A549-ACE2_SARS-CoV-2@Series16,1
+A549_SARS-CoV-2@Series2,1
+A549_RSV@Series3,0
+A549_IAV@Series4,0
+A549_SARS-CoV-2@Series5,1
+A549-ACE2_SARS-CoV-2@Series6,1
+Calu3_SARS-CoV-2@Series7,1
+A549_RSV@Series8,0
+A549_HPIV3@Series8,0
+NHBE_IAV@Series9,0
+NHBE_IAVdNS1@Series9,0

@@ -1,0 +1,115 @@
+/* Custom CSS for RidgeInference docs */
+
+/* Improve code block styling */
+div.highlight {
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+/* Improve table styling */
+table.docutils {
+    border: 1px solid #e1e4e5;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+
+table.docutils td, table.docutils th {
+    padding: 8px 16px;
+    border: 1px solid #e1e4e5;
+}
+
+table.docutils th {
+    background-color: #f3f6f6;
+}
+
+/* Improve section headers */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    color: #2980B9;
+}
+
+/* Improve API method display */
+dl.method, dl.function {
+    padding: 10px;
+    border-left: 3px solid #6ab0de;
+    background-color: #f8f8f8;
+    margin-bottom: 20px;
+}
+
+dl.method dt, dl.function dt {
+    font-weight: bold;
+    background-color: #e7f2fa;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* Improve parameter lists */
+dl.field-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+dl.field-list > dt {
+    flex-basis: 20%;
+    font-weight: bold;
+}
+
+dl.field-list > dd {
+    flex-basis: 80%;
+    margin-left: 0;
+    padding-left: 1em;
+}
+
+/* Better list styling */
+ul.simple {
+    margin-left: 2em;
+}
+
+ul.simple li {
+    margin-bottom: 0.5em;
+}
+
+/* Code references */
+code.xref {
+    background-color: #f8f8f8;
+    border: 1px solid #e1e4e5;
+    padding: 0 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #2980B9;
+}
+
+/* Note and warning admonitions */
+div.admonition.note {
+    background-color: #e7f2fa;
+    border-left: 6px solid #3498db;
+}
+
+div.admonition.warning {
+    background-color: #ffedcc;
+    border-left: 6px solid #f39c12;
+}
+
+/* Better navigation */
+div.wy-menu-vertical li.current > a {
+    background-color: #e7f2fa;
+}
+
+/* Logo area */
+.wy-side-nav-search {
+    background-color: #2c3e50;
+}
+
+/* Search box */
+.wy-side-nav-search input[type="text"] {
+    border-color: #1a242f;
+}
+
+/* Code examples */
+pre {
+    padding: 12px;
+    background-color: #f8f8f8;
+    border-left: 3px solid #2980B9;
+    margin-bottom: 24px;
+    overflow-x: auto;
+}
